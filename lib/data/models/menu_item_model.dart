@@ -23,10 +23,7 @@ class MenuItemModel {
   });
 
   String get formattedPrice {
-    return 'Rp ${price.toStringAsFixed(0).replaceAllMapped(
-          RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-          (Match m) => '${m[1]}.',
-        )}';
+    return 'Rp ${price.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}';
   }
 }
 
@@ -37,19 +34,23 @@ final List<MenuItemModel> sampleMenuItems = [
     name: 'Mie Pedas Kantingo Level 1-4',
     category: 'Mie & Makanan',
     price: 13000,
-    description:
-        'Mie pedas gurih dengan taburan ayam cincang halus, pangsit goreng renyah, dan racikan cabai segar.',
+    description: 'Mie pedas gurih dengan taburan ayam cincang halus, pangsit goreng renyah, dan racikan cabai segar.',
     estimatedTime: '8-10 Menit',
     rating: 4.9,
-    spiceLevels: ['Level 0 (Gurih)', 'Level 1', 'Level 2', 'Level 3', 'Level 4'],
+    spiceLevels: [
+      'Level 0 (Gurih)',
+      'Level 1',
+      'Level 2',
+      'Level 3',
+      'Level 4',
+    ],
   ),
   const MenuItemModel(
     id: 'm2',
     name: 'Mie Manis Pedas Kantingo',
     category: 'Mie & Makanan',
     price: 13000,
-    description:
-        'Mie pedas manis dengan perpaduan kecap istimewa, taburan ayam cincang, dan daun bawang segar.',
+    description: 'Mie pedas manis dengan perpaduan kecap istimewa, taburan ayam cincang, dan daun bawang segar.',
     estimatedTime: '8-10 Menit',
     rating: 4.8,
     spiceLevels: ['Level 0 (Manis)', 'Level 1', 'Level 2', 'Level 3'],
@@ -59,8 +60,7 @@ final List<MenuItemModel> sampleMenuItems = [
     name: 'Dimsum Siomay Ayam (3 pcs)',
     category: 'Dimsum & Side',
     price: 11000,
-    description:
-        'Siomay ayam lembut dan kenyal disajikan hangat dengan cocolan saus pedas manis khas.',
+    description: 'Siomay ayam lembut dan kenyal disajikan hangat dengan cocolan saus pedas manis khas.',
     estimatedTime: '5-7 Menit',
     rating: 4.9,
     spiceLevels: [],
@@ -71,8 +71,7 @@ final List<MenuItemModel> sampleMenuItems = [
     name: 'Pangsit Goreng Renyah (3 pcs)',
     category: 'Dimsum & Side',
     price: 11000,
-    description:
-        'Pangsit goreng isi olahan ayam berpadu kulit renyah kriuk dengan saus cocolan gurih.',
+    description: 'Pangsit goreng isi olahan ayam berpadu kulit renyah kriuk dengan saus cocolan gurih.',
     estimatedTime: '5 Menit',
     rating: 4.7,
     spiceLevels: [],
@@ -83,8 +82,7 @@ final List<MenuItemModel> sampleMenuItems = [
     name: 'Es Segar Kantingo',
     category: 'Minuman Segar',
     price: 8000,
-    description:
-        'Es campur buah segar dengan sirup manis harum dan jelly kenyal pelepas pedas.',
+    description: 'Es campur buah segar dengan sirup manis harum dan jelly kenyal pelepas pedas.',
     estimatedTime: '3-5 Menit',
     rating: 4.8,
     spiceLevels: [],
@@ -95,12 +93,10 @@ final List<MenuItemModel> sampleMenuItems = [
     name: 'Es Teh Melati Jumbo',
     category: 'Minuman Segar',
     price: 4000,
-    description:
-        'Seduhan teh melati tradisional dengan gula murni dan es batu melimpah segar.',
+    description: 'Seduhan teh melati tradisional dengan gula murni dan es batu melimpah segar.',
     estimatedTime: '2 Menit',
     rating: 4.7,
     spiceLevels: [],
     toppings: ['Less Sugar', 'Ekstra Es Batu'],
   ),
 ];
-

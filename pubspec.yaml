@@ -37,6 +37,7 @@ dependencies:
   
   # Tambahkan package http di sini
   http: ^1.2.0
+  go_router: ^14.6.2
 
 dev_dependencies:
   flutter_test:

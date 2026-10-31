@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-
-import 'menu_screen.dart'; // Memanggil halaman menu yang sudah kita buat
+import 'app/app_router.dart';
+import 'app/app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const KantingoApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+/// Root widget aplikasi Kantingo dengan konfigurasi GoRouter dan Theme.
+class KantingoApp extends StatelessWidget {
+  const KantingoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Kantingo App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
-        useMaterial3: true,
-      ),
-      // Mengarahkan halaman utama aplikasi langsung ke MenuScreen
-      home: const MenuScreen(),
+    return MaterialApp.router(
+      title: 'Kantingo',
+      theme: AppTheme.lightTheme,
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
     );
   }
