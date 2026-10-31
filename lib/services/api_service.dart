@@ -1,40 +1,37 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+/// Service komunikasi API HTTP dengan backend Laravel Kantingo.
 class ApiService {
-  // Ganti URL ini sesuai perangkat yang kamu gunakan untuk testing:
-  // - Android Emulator : 'http://10.0.2.2:8000/api'
-  // - Flutter Web / PC : 'http://127.0.0.1:8000/api'
-  // - HP Fisik (Android/iOS) : 'http://<IP_KOMPUTER_KAMU>:8000/api' (Contoh: 192.168.1.10:8000)
   static const String baseUrl = 'http://10.0.2.2:8000/api';
 
-  // 1. Ambil Data Menu & Kategori dari Laravel
+  /// Mengambil daftar menu dan kategori dari server.
   static Future<Map<String, dynamic>?> getMenus() async {
     try {
       final response = await http.get(Uri.parse('$baseUrl/menus'));
       if (response.statusCode == 200) {
-        return jsonDecode(response.body);
+        return jsonDecode(response.body) as Map<String, dynamic>;
       }
-    } catch (e) {
-      print('Gagal mengambil menu: $e');
+    } catch (_) {
+      return null;
     }
     return null;
   }
 
-  // 2. Ambil Daftar Meja dari Laravel
+  /// Mengambil daftar status meja kantin.
   static Future<Map<String, dynamic>?> getTables() async {
     try {
       final response = await http.get(Uri.parse('$baseUrl/tables'));
       if (response.statusCode == 200) {
-        return jsonDecode(response.body);
+        return jsonDecode(response.body) as Map<String, dynamic>;
       }
-    } catch (e) {
-      print('Gagal mengambil meja: $e');
+    } catch (_) {
+      return null;
     }
     return null;
   }
 
-  // 3. Kirim Pesanan Baru (Checkout) ke Laravel
+  /// Mengirim data transaksi pesanan baru ke server.
   static Future<bool> storeOrder({
     required int tableId,
     required String customerName,
@@ -51,12 +48,9 @@ class ApiService {
         }),
       );
 
-      if (response.statusCode == 201) {
-        return true;
-      }
-    } catch (e) {
-      print('Gagal mengirim pesanan: $e');
+      return response.statusCode == 201;
+    } catch (_) {
+      return false;
     }
-    return false;
   }
 }
